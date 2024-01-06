@@ -36,11 +36,11 @@ const App = () => {
   }
 
   let updateItem =(item)=>{
-    // console.log(item)
-  //  const index = additem.findIndex((v)=>v.id===item.id)
-  //  const newItems =[...additem]
-  //  newItems.splice(index,1,item)
-  //  setAddItem(newItems)
+    console.log(item)
+   const index = additem.findIndex((v)=>v.id===item.id)
+   const newItems =[...additem]
+   newItems.splice(index,1,item)
+   setAddItem(newItems)
   }
 
   return (

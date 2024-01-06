@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "./AddTodo.css";
+
 const AddTodo = ({ collectData, updateItem, editItem }) => {
-  
+ 
+ 
   const [items, setItems] = useState('');
   let clickHandler = (e) => {
     e.preventDefault();
@@ -9,9 +11,16 @@ const AddTodo = ({ collectData, updateItem, editItem }) => {
     let data ={
       item:items,
     }
+    if(editItem){
+      updateItem(data)
+    }else{
+      collectData(data)
+    }
    
-    collectData(data)
+   
+
     setItems("");
+
   };
   let inputHandler = (e) => {
     setItems(e.target.value);
