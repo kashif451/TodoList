@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import Todo from "./Todo";
-const TodoList = ({ element ,deleteItem,editText}) => {
+import addItemContext from "../context/additemContext";
+const TodoList = ({ editText}) => {
 
-  
+  // element
+
+  const element =  useContext(addItemContext)
   return (
  
     <div>
@@ -12,9 +15,13 @@ const TodoList = ({ element ,deleteItem,editText}) => {
         <Todo 
         key={d.id}
         name={d.item}
-       id={d.id}
-        deleteItem={deleteItem}
+         id={d.id}
+        //  dispatch={dispatch}
         editText={editText}
+       
+        element={element}
+      
+     
         /> 
       ))}
     </div>

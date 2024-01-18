@@ -1,23 +1,37 @@
 .todolist{
     border: 2px solid black ;
+    border-right: none;
     margin-bottom: 50px;
-    height: 40px;
-    width: 80%;
+    height: 50px;
+    width: 40%;
     display: flex;
     align-items: center;
-    padding-left: 5px;
+    padding-left: 10px;
+    border-radius: 50px 0 0 50px ;
 }
 .todolist:hover{
     background-color: orangered;
     transition: all ease 1s;
 }
 .btn-up{
-    height: 45px;
+    height: 55px;
     width: 45px;
-    border: 2px solid black ;
+    /* border: 2px solid black ; */
 
 }
 .btn-up:hover{
-background-color: antiquewhite;
+background-color: #FAF3DD;
 color: black;
+transition: all ease 0.5s;
+}
+.edit{
+    border-radius: 0 50px 50px 0;
+  font-size: 17px;
+  background-color: #114B5F;
+  color: white;
+}
+.Delete{
+    background-color:maroon;
+    color:white;
+    font-size:17px;
 }

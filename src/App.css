@@ -1,5 +1,5 @@
 body{
-    background-color:white;
+    background-color:#FAF3DD;
 }
 /* .heading{
     text-align: center;
@@ -7,7 +7,7 @@ body{
    
 } */
 h1{ text-align: center;
-    margin-left: 45%;
+    margin-left: 40%;
     margin-top: 50px;
     width: max-content;
     position: relative;

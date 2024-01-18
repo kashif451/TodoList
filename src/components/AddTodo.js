@@ -1,30 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./AddTodo.css";
+// import addItemContext from "../context/additemContext";
+import dispatchContext from "../context/dispatchContext";
 
-const AddTodo = ({ collectData, updateItem, editItem }) => {
+const data ={
+  item:"",
+}
+
+const AddTodo = ({ editItem }) => {
  
- 
-  const [items, setItems] = useState('');
+  //  dispatch
+ const  dispatch =  useContext(dispatchContext)
+
+  const [items, setItems] = useState(data);
+  // console.log(items)
   let clickHandler = (e) => {
     e.preventDefault();
-
-    let data ={
-      item:items,
-    }
+    
     if(editItem){
-      updateItem(data)
+      dispatch({ type:'UPDATE' ,payload:items });
+
     }else{
-      collectData(data)
+
+      dispatch({ type:'ADD' ,payload:items })
     }
+  
    
    
 
-    setItems("");
+    setItems(data);
 
   };
   let inputHandler = (e) => {
-    setItems(e.target.value);
-  };
+    setItems({...items,
+     [e.target.name]: e.target.value});
+    }
+
   useEffect(
     ()=>{
       if(editItem)
@@ -36,14 +47,15 @@ const AddTodo = ({ collectData, updateItem, editItem }) => {
   return (
     <div>
       <form
-        style={{ marginBottom: "60px", marginTop: "60px", textAlign: "center" }}
+        style={{ marginBottom: "60px", marginTop: "60px", textAlign: "center"}}
       >
         <input
           type="text"
-          value={items}
-          name="items"
+          name="item"
           onChange={inputHandler}
           className="input-Style"
+          value={items.item}
+          placeholder="✍ Add Items"
         />
         <button className="primary-btn" onClick={clickHandler}>
           {editItem ? "Edit" : "Add"} Item
@@ -52,5 +64,6 @@ const AddTodo = ({ collectData, updateItem, editItem }) => {
     </div>
   );
 };
+
 
 export default AddTodo;
